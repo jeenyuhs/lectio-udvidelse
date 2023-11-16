@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "Lectio-OS",
+    "version": "1.0.0",
+    "description": "En chrome udvidelse, til at gøre Lectio oplevelsen mere behalig.",
+    "author": "Simon G., OssieFromDK, 1cy50ng3b0b",
+    "action": {
+        "default_popup": "assets/popup.html",
+        "default_icon": "assets/icon.png"
+    },
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "*://*.lectio.dk/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.lectio.dk/*"
+            ],
+            "js": [
+                "dist/content.js"
+            ]
+        }
+    ],
+    "background": {
+        "service_worker": "dist/background.js"
+    }
+}
